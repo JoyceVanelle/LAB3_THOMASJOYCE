@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GestionJeu : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class GestionJeu : MonoBehaviour
     private float _tempTot = 0;
     private float _tempNiv;
     private int  _niv = 0;
+    
 
 
     private int _accrochageNiveau1 = 0;  // Atribut qui conserve le nombre d'accrochage pour le niveau 1
@@ -153,6 +155,8 @@ public class GestionJeu : MonoBehaviour
     public void AugmenterPointage()
     {
         _pointage++;
+        ManagerUI uiManager = FindObjectOfType<ManagerUI>();
+        uiManager.ChangerPointage(_pointage);
         Debug.Log("Nombre d'accrochage : " + _pointage);
     }
 
