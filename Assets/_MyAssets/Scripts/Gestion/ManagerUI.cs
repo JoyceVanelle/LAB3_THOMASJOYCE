@@ -11,7 +11,8 @@ public class ManagerUI : MonoBehaviour
     [SerializeField] private GameObject _menuPause = default;
    
     private bool _enpause = false;
-    private bool _debutJeu = true;
+    private bool _debutJeu = false;
+    private float debNiv = 0;
 
 
     private bool _enPause;
@@ -30,14 +31,18 @@ public class ManagerUI : MonoBehaviour
     private void Update()
     {
         GestionPause();
-        if (_debutJeu == true && (Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Vertical") > 0))
+        if (Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Vertical") > 0 || Input.GetAxis("Vertical") < 0 || Input.GetAxis("Horizontal") < 0 && _debutJeu)
         {
+            debNiv = Time.time;
+            _debutJeu = true;
+            Debug.Log("Niveau Commencer");
             
-            float temps = Time.time - _gestionJeu.GetTemp();
+        }
+        if (_debutJeu)
+        {
+            float temps = (Time.time - _gestionJeu.GetTemp()) - debNiv;
             _txtTemps.text = "Temps : " + temps.ToString("f2");
         }
-            
-       
     }
 
     private void GestionPause()
