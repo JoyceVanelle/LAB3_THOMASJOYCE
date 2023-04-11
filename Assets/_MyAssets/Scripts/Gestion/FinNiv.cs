@@ -28,7 +28,7 @@ public class FinNiv : MonoBehaviour
             
             _player.FinPartie();
             noScene = SceneManager.GetActiveScene().buildIndex;
-            if (noScene == 3)
+            if (noScene == 4)
             {
                 _gestionJeu.FinNiveau();
                 Debug.Log(_gestionJeu.GetMess() + " Temps final: " + _gestionJeu.GetTempTot() + " Nombre d'accrochage total: " + _gestionJeu.GetPoint() + " Pour un temps total avec penalités de: " + (_gestionJeu.GetTempTot() + _gestionJeu.GetPoint() )) ;
