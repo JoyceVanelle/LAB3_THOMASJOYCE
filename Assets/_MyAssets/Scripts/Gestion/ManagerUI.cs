@@ -30,12 +30,11 @@ public class ManagerUI : MonoBehaviour
 
     private void Update()
     {
-        GestionPause();
+        
         if ((Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Vertical") > 0 || Input.GetAxis("Vertical") < 0 || Input.GetAxis("Horizontal") < 0) && _aBouger == false)
         {
             debNiv = Time.time;
             _aBouger = true;
-            Debug.Log(_debutJeu);
             
         }
         if (_aBouger)
@@ -43,19 +42,21 @@ public class ManagerUI : MonoBehaviour
             float temps = (Time.time - _gestionJeu.GetTemp()) - debNiv;
             _txtTemps.text = "Temps : " + temps.ToString("f2");
         }
+        GestionPause();
     }
 
     private void GestionPause()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !_enPause)
         {
+            Debug.Log("Pause");
             _menuPause.SetActive(true);
             Time.timeScale = 0;
             _enPause = true;
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && _enPause)
         {
-           // EnleverPause();
+           enleverpause();
         }
     }
 
@@ -68,6 +69,6 @@ public class ManagerUI : MonoBehaviour
     {
        _menuPause.SetActive(false);
        Time.timeScale = 1;
-        _enpause = false;
+        _enPause = false;
     }
 }
