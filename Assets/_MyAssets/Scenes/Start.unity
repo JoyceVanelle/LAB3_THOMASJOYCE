@@ -1318,7 +1318,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: DEMARER
+  m_text: "D\xC9MARER"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 15ed9d6cfc3708345afcd8be0e4f9cb8, type: 2}
   m_sharedMaterial: {fileID: 6605606178184095303, guid: 15ed9d6cfc3708345afcd8be0e4f9cb8, type: 2}
@@ -2111,7 +2111,7 @@ GameObject:
   - component: {fileID: 2051237312}
   - component: {fileID: 2051237311}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Txtinstructions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
